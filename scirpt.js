@@ -57,3 +57,31 @@ function updateResults(streams) {
         </div>
     `).join('');
 }
+
+async function testTokenRequest() {
+    const tokenUrl = 'https://api.kick.com/public/v1/oauth/token';
+    const params = new URLSearchParams({
+        grant_type: 'authorization_code',
+        client_id: '091JNYD4k2NRM9Y0WNFHJGQA8',
+        redirect_uri: 'https://cwetherell.github.io/KickPlus/callback.html',
+        code: 'test-code', // Use a real code here after authorization
+        code_verifier: 'test-verifier' // Use the real code_verifier here
+    });
+
+    try {
+        const response = await fetch(tokenUrl, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: params
+        });
+        const data = await response.json();
+        console.log('Token response:', data);
+    } catch (error) {
+        console.error('Token request failed:', error);
+    }
+}
+
+// Call the function to test
+testTokenRequest();
