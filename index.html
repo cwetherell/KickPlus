@@ -66,5 +66,53 @@
     </div>
 
     <script src="script.js"></script>
+    <!-- Add this to your index.html -->
+<script>
+    // Check if we have an auth code from the callback
+    window.onload = async function() {
+        const authCode = localStorage.getItem('auth_code');
+        if (authCode) {
+            const codeVerifier = localStorage.getItem('code_verifier');
+            if (!codeVerifier) {
+                console.error('Code verifier not found');
+                return;
+            }
+
+            // Exchange the code for an access token
+            const tokenUrl = 'https://api.kick.com/public/v1/oauth/token';
+            const params = new URLSearchParams({
+                grant_type: 'authorization_code',
+                client_id: '091JNYD4k2NRM9Y0WNFHJGQA8',
+                redirect_uri: 'https://cwetherell.github.io/KickPlus/callback.html',
+                code: authCode,
+                code_verifier: codeVerifier
+            });
+
+            try {
+                const response = await fetch(tokenUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
+                    body: params
+                });
+
+                const data = await response.json();
+                if (data.access_token) {
+                    console.log('Access token received:', data.access_token);
+                    localStorage.setItem('access_token', data.access_token);
+                    // Optionally clear the auth code and code_verifier
+                    localStorage.removeItem('auth_code');
+                    localStorage.removeItem('code_verifier');
+                    // Now you can use the access token to make API requests
+                } else {
+                    console.error('Error exchanging code for token:', data);
+                }
+            } catch (error) {
+                console.error('Token exchange failed:', error);
+            }
+        }
+    };
+</script>
 </body>
 </html>
