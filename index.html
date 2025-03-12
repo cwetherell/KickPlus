@@ -6,7 +6,7 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1>KickPlus</h1>
+  <h1>KickPlus - Find Live Streams on Kick</h1>
   <form id="filterForm">
     <label for="category">Category/Game:</label>
     <input type="text" id="category" name="category" placeholder="Start typing to suggest categories (e.g., Fortnite)"><br>
@@ -24,10 +24,12 @@
     <input type="number" id="maxViewers" name="maxViewers" placeholder="e.g., 200"><br>
 
     <button type="submit">Search</button>
+    <button type="button" id="resetButton">Reset</button>
   </form>
 
   <div id="results">
     <h2>Results</h2>
+    <div id="loading" style="display: none;">Loading...</div>
     <ul id="streamList"></ul>
   </div>
 

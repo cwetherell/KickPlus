@@ -33,9 +33,16 @@ body {
     color: #1a1a1a;
     border: none;
     cursor: pointer;
+    margin-right: 10px;
   }
   button:hover {
     background-color: #00cc00;
+  }
+  #resetButton {
+    background-color: #ff4444;
+  }
+  #resetButton:hover {
+    background-color: #cc0000;
   }
   #results {
     margin-top: 20px;
@@ -48,6 +55,10 @@ body {
     padding: 10px;
     border-bottom: 1px solid #555;
     background-color: #222;
+  }
+  #loading {
+    color: #00ff00;
+    font-style: italic;
   }
   #suggestions {
     padding: 5px;
