@@ -1,114 +1,50 @@
-/* Dark Mode Styling */
 body {
-    margin: 0;
     font-family: Arial, sans-serif;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
     background-color: #1a1a1a;
-    color: #ffffff;
-}
-
-/* Nav Bar */
-nav {
-    background-color: #2c2c2c;
-    padding: 1rem;
+    color: #e0e0e0;
+  }
+  h1 {
+    color: #00ff00;
+  }
+  form {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
-}
-nav .logo {
-    font-size: 1.5rem;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  label {
     font-weight: bold;
-}
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 1.5rem;
-    margin: 0;
-    padding: 0;
-}
-nav a {
-    color: #ffffff;
-    text-decoration: none;
-    font-size: 1.1rem;
-}
-nav a:hover {
-    color: #00ff22;
-}
-
-/* Main Content */
-.container {
-    max-width: 1000px;
-    margin: 2rem auto;
-    padding: 0 1rem;
-}
-h1 {
-    text-align: center;
-    color: #00ff22;
-}
-
-/* Filters Section */
-.filters {
-    background-color: #2c2c2c;
-    padding: 1.5rem;
-    border-radius: 8px;
-    margin-bottom: 2rem;
-}
-.filters label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-size: 1.1rem;
-}
-.filters select, .filters input {
-    width: 100%;
-    padding: 0.5rem;
-    margin-bottom: 1rem;
-    background-color: #3a3a3a;
+    color: #00ff00;
+  }
+  input, select {
+    padding: 5px;
+    font-size: 16px;
+    background-color: #333;
+    color: #e0e0e0;
     border: 1px solid #555;
-    color: #ffffff;
-    border-radius: 4px;
-}
-.filters button {
-    width: 100%;
-    padding: 0.75rem;
-    background-color: #00ff22;
-    border: none;
+  }
+  button {
+    padding: 10px;
+    background-color: #00ff00;
     color: #1a1a1a;
-    font-weight: bold;
-    border-radius: 4px;
+    border: none;
     cursor: pointer;
-}
-.filters button:hover {
-    background-color: #00ff22;
-}
-
-/* Results Section */
-.results {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;
-}
-.stream-card {
-    background-color: #2c2c2c;
-    padding: 1rem;
-    border-radius: 8px;
-    text-align: center;
-}
-.stream-card img {
-    max-width: 100%;
-    border-radius: 4px;
-}
-.stream-card h3 {
-    margin: 0.5rem 0;
-    color: #00ff22;
-}
-.stream-card p {
-    margin: 0.25rem 0;
-    font-size: 0.9rem;
-}
-.stream-card a {
-    color: #00ff22;
-    text-decoration: none;
-}
-.stream-card a:hover {
-    text-decoration: underline;
-}
+  }
+  button:hover {
+    background-color: #00cc00;
+  }
+  #results {
+    margin-top: 20px;
+  }
+  #streamList {
+    list-style: none;
+    padding: 0;
+  }
+  #streamList li {
+    padding: 10px;
+    border-bottom: 1px solid #555;
+    background-color: #222;
+  }

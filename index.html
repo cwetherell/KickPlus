@@ -1,71 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kick+ - Find Your Kick Streamer</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="icon" href="./assets/kickplusicon.png" type="image/x-icon">
+  <meta charset="UTF-8">
+  <title>KickPlus - Find Live Streams on Kick</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Nav Bar -->
-    <nav>
-        <div class="logo">Kick+</div>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-<div> <button onclick="startOAuthFlow()">Connect to Kick</button></div>
-    <!-- Main Content -->
-    <div class="container">
-        <h1>Find Your Perfect Kick Streamer</h1>
+  <h1>KickPlus - Find Live Streams on Kick</h1>
+  <form id="filterForm">
+    <label for="category">Category/Game:</label>
+    <input type="text" id="category" name="category" placeholder="e.g., Fortnite"><br>
 
-        <!-- Filters -->
-        <div class="filters">
-            <label for="genre">Game Genre</label>
-            <select id="genre">
-                <option value="">Any</option>
-                <option value="fps">FPS</option>
-                <option value="rpg">RPG</option>
-                <option value="creative">Creative</option>
-            </select>
+    <label for="status">Status:</label>
+    <select id="status" name="status">
+      <option value="live">Live</option>
+      <option value="offline">Offline</option>
+    </select><br>
 
-            <label for="vibe">Channel Vibe</label>
-            <select id="vibe">
-                <option value="">Any</option>
-                <option value="chill">Chill</option>
-                <option value="hype">Hype</option>
-                <option value="funny">Funny</option>
-            </select>
+    <label for="language">Language:</label>
+    <input type="text" id="language" name="language" placeholder="e.g., English"><br>
 
-            <label for="viewers">Viewer Count</label>
-            <input type="range" id="viewers" min="0" max="1000" value="500">
+    <label for="minViewers">Min Viewers:</label>
+    <input type="number" id="minViewers" name="minViewers" placeholder="e.g., 100"><br>
 
-            <button onclick="findStreams()">Find Streams</button>
-        </div>
+    <button type="submit">Search</button>
+  </form>
 
-        <!-- Results (Placeholder) -->
-        <div class="results" id="results">
-            <div class="stream-card">
-                <img src="https://via.placeholder.com/300x150" alt="Streamer Thumbnail">
-                <h3>StreamerOne</h3>
-                <p>Playing: FPS | Viewers: 42</p>
-                <p>Vibe: Hype</p>
-                <a href="https://kick.com" target="_blank">Watch Now</a>
-            </div>
-            <div class="stream-card">
-                <img src="https://via.placeholder.com/300x150" alt="Streamer Thumbnail">
-                <h3>CreativeGal</h3>
-                <p>Playing: Creative | Viewers: 15</p>
-                <p>Vibe: Chill</p>
-                <a href="https://kick.com" target="_blank">Watch Now</a>
-            </div>
-        </div>
-    </div>
+  <div id="results">
+    <h2>Results</h2>
+    <ul id="streamList"></ul>
+  </div>
 
-    <script src="script.js"></script>
-
+  <script src="script.js"></script>
 </body>
 </html>
