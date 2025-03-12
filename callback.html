@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KickPlus OAuth Callback</title>
+</head>
+<body>
+    <h1>Processing Kick Authorization...</h1>
+    <p id="status">Please wait...</p>
+
+    <script>
+        // Function to parse query parameters from the URL
+        function getQueryParams() {
+            const params = new URLSearchParams(window.location.search);
+            return {
+                code: params.get('code'),
+                state: params.get('state'),
+                error: params.get('error'),
+                error_description: params.get('error_description')
+            };
+        }
+
+        // Get the query parameters
+        const { code, state, error, error_description } = getQueryParams();
+
+        if (error) {
+            // If there's an error, display it
+            document.getElementById('status').innerText = `Error: ${error} - ${error_description}`;
+        } else if (code && state) {
+            // Verify the state matches what you sent (to prevent CSRF attacks)
+            const expectedState = localStorage.getItem('oauth_state');
+            if (state !== expectedState) {
+                document.getElementById('status').innerText = 'State mismatch! Possible CSRF attack.';
+                return;
+            }
+
+            // Display the code (for debugging purposes)
+            document.getElementById('status').innerText = `Authorization code received: ${code}`;
+
+            // Save the code to localStorage or send it to your app's logic
+            localStorage.setItem('auth_code', code);
+
+            // Optionally redirect back to the main page
+            setTimeout(() => {
+                window.location.href = '/KickPlus/'; // Adjust the path as needed
+            }, 2000);
+        } else {
+            document.getElementById('status').innerText = 'No authorization code received.';
+        }
+    </script>
+</body>
+</html>
