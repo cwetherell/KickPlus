@@ -1,6 +1,7 @@
 // Attach all functions to the window object to make them globally accessible
 window.startOAuthFlow = startOAuthFlow;
 window.testTokenRequest = testTokenRequest;
+window.generateCodeChallenge = generateCodeChallenge;
 
 // Generate a random string for code_verifier, state, or other purposes
 function generateRandomString(length) {
@@ -50,6 +51,7 @@ async function startOAuthFlow() {
             `&code_challenge=${codeChallenge}` +
             `&code_challenge_method=S256`;
         console.log('Full authorize URL:', authorizeUrl);
+        console.log('Redirecting to authorize URL...');
         window.location.href = authorizeUrl;
     } catch (error) {
         console.error('Error in startOAuthFlow:', error);
@@ -79,6 +81,7 @@ window.testTokenRequest = async function() {
     });
 
     try {
+        console.log('Sending token request to:', tokenUrl);
         const response = await fetch(tokenUrl, {
             method: 'POST',
             headers: {
