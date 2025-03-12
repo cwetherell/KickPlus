@@ -5,6 +5,7 @@ body {
     padding: 20px;
     background-color: #1a1a1a;
     color: #e0e0e0;
+    position: relative;
   }
   h1 {
     color: #00ff00;
@@ -47,4 +48,17 @@ body {
     padding: 10px;
     border-bottom: 1px solid #555;
     background-color: #222;
+  }
+  #suggestions {
+    padding: 5px;
+    max-height: 150px;
+    overflow-y: auto;
+    z-index: 10;
+  }
+  #suggestions div {
+    padding: 2px 5px;
+    cursor: pointer;
+  }
+  #suggestions div:hover {
+    background-color: #444;
   }
