@@ -9,7 +9,7 @@
   <h1>KickPlus - Find Live Streams on Kick</h1>
   <form id="filterForm">
     <label for="category">Category/Game:</label>
-    <input type="text" id="category" name="category" placeholder="e.g., Fortnite"><br>
+    <input type="text" id="category" name="category" placeholder="Start typing to suggest categories (e.g., Fortnite)"><br>
 
     <label for="status">Status:</label>
     <select id="status" name="status">
@@ -20,8 +20,8 @@
     <label for="language">Language:</label>
     <input type="text" id="language" name="language" placeholder="e.g., English"><br>
 
-    <label for="minViewers">Min Viewers:</label>
-    <input type="number" id="minViewers" name="minViewers" placeholder="e.g., 100"><br>
+    <label for="maxViewers">Max Viewers:</label>
+    <input type="number" id="maxViewers" name="maxViewers" placeholder="e.g., 200"><br>
 
     <button type="submit">Search</button>
   </form>
@@ -30,6 +30,8 @@
     <h2>Results</h2>
     <ul id="streamList"></ul>
   </div>
+
+  <div id="suggestions" style="position: absolute; background: #222; border: 1px solid #555; display: none;"></div>
 
   <script src="script.js"></script>
 </body>
